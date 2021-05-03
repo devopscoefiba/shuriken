@@ -1,3 +1,3 @@
 from mongoengine import connect
 
-connect(host='mongodb+srv://defaultUser:1234@cluster0.7z1zi.mongodb.net/myFirstDatabase?retryWrites=true&w=majority')
+connect(host='mongodb+srv://basar:Bb123@cluster0.sqm2s.mongodb.net/DevOps?authSource=admin&replicaSet=atlas-lf8bog-shard-0&readPreference=primary&appname=MongoDB%20Compass&ssl=true')

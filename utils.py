@@ -12,12 +12,12 @@ import settings
 # connect("mongodb+srv://defaultUser:1234@cluster0.7z1zi.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
 
 cluster = MongoClient(
-    "mongodb+srv://defaultUser:1234@cluster0.7z1zi.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
+    "mongodb+srv://basar:Bb123@cluster0.sqm2s.mongodb.net/DevOps?authSource=admin&replicaSet=atlas-lf8bog-shard-0&readPreference=primary&appname=MongoDB%20Compass&ssl=true")
 
 #   Database configurations are made here. These are the test DB values
 #   Change values in need of use but dont change collection variable name
-db = cluster["shurikendb"]
-collection = db["posts"]
+db = cluster["DevOps"]
+collection = db["metadata"]
 
 
 # inserting post to database in this method
