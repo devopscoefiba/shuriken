@@ -1,0 +1,27 @@
+{
+    "application":
+    {
+        "id" : 00000,
+        "business":
+        {
+            "kurulum saati":"11.45",
+            "is birimi" : "Cevik Gelistirme"
+        },
+        "infrastructure" :
+        {
+            "Sunucu ismi" : "null",
+            "Sunucu Teknoloji": "null",
+            "Middleware": "null",
+            "Direct DBS": "null",
+            "DB Tech Client": "null"
+        },
+        "software":
+        {
+            "gelistirici": "null",
+            "baglı oldugu takim" : "DevOps",
+            "takim direktoru" : "mete kose",
+            "teknoloji" : "null",
+            "repository" : "null"
+        }
+    }
+}

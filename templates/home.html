@@ -6,11 +6,24 @@
 
 {% block body %}
     <h1> Add post page</h1>
-    <form action="/create-page/" method="POST">
+    <form action="/home" method="POST">
         <input type="text" name="name">
-        <input type="submit" value="Add Human">
+        <input type="submit" value="Add Post">
     </form>
 
 
     <h1>Posts in database</h1>
+    {% for post in posts %}
+        <h3> Post ID </h3>
+        <td>{{ post._id }}</td>
+        <h3> Post Value </h3>
+        <td>{{ post.json_body }}</td>
+        <td>
+            <a href="">Delete</a>
+            <br>
+            <a href="">Update</a>
+            <br>
+            <br>
+        </td>
+    {% endfor %}
 {% endblock %}
