@@ -1,3 +1,3 @@
 from mongoengine import connect
 
-connect(host='mongodb+srv://defaultUser:1234@cluster0.7z1zi.mongodb.net/myFirstDatabase?retryWrites=true&w=majority')
+connect(host='mongodb+srv://user:user123@s-db.kktfx.mongodb.net/shurikendb?retryWrites=true&w=majority')
