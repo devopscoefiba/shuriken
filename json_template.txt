@@ -4,22 +4,22 @@
         "id" : 00000,
         "business":
         {
-            "kurulum saati":"11.45",
-            "is birimi" : "Cevik Gelistirme"
+            "kurulum_saati":"11.45",
+            "is_birimi" : "Cevik Gelistirme"
         },
         "infrastructure" :
         {
-            "Sunucu ismi" : "null",
-            "Sunucu Teknoloji": "null",
-            "Middleware": "null",
-            "Direct DBS": "null",
-            "DB Tech Client": "null"
+            "sunucu_ismi" : "null",
+            "sunucu_teknoloji": "null",
+            "middleware": "null",
+            "direct_DBS": "null",
+            "db_Tech_Client": "null"
         },
         "software":
         {
             "gelistirici": "null",
-            "baglı oldugu takim" : "DevOps",
-            "takim direktoru" : "mete kose",
+            "takim" : "DevOps",
+            "takim_direktoru" : "mete kose",
             "teknoloji" : "null",
             "repository" : "null"
         }
