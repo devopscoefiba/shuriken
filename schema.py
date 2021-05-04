@@ -3,7 +3,7 @@ import jsonschema
 from jsonschema import validate
 
 dataSchema = {
-    #gerekirse her value icin description yaz
+    #gerekirse her value icin description yazılabilinir
     "description": "DevOps yatayına girecek uygulamaların metadata bilgi seması",    
     "type" : "object",    
     "properties" : {
@@ -17,40 +17,40 @@ dataSchema = {
                     },
                     "business" : {
                         "type" : "object",
-                        "required" : [ "kurulumSaati", "isBrimi"],
+                        "required" : [ "kurulum_saati", "is_birimi"],
                         "properties" : {
-                            "kurulumSaati" : {
+                            "kurulum_saati" : {
                                 "type" : "integer"  #simdilik integer dedim ama hata olabilir
                             },
-                            "isBirimi" : {
+                            "is_birimi" : {
                                 "type" : "string"
                             }
                         }
                     },
                     "infrastructure" : {
                         "type" : "object",
-                        "required" : [ "sunucuIsmi" , "sunucuTeknoloji" , "middleware" , "directDBS" , "dbTechClient"],
+                        "required" : [ "sunucu_ismi" , "sunucu_teknoloji" , "middleware" , "direct_DBS" , "db_Tech_Client"],
                         "properties" : {
-                            "sunucuIsmi" : {
+                            "sunucu_ismi" : {
                                 "type" : "string"
                             },
-                            "sunucuTeknoloji" : {
+                            "sunucu_teknoloji" : {
                                 "type" : "string"
                             },
                             "middleware" : {
                                 "type" : "string"
                             },
-                            "directDBS" : {
+                            "direct_DBS" : {
                                 "type" : "string"
                             },
-                            "dbTechClient" : {
+                            "db_Tech_Client" : {
                                 "type" : "string"
                             }
                         }
                     },
                     "software" : {
                         "type" : "object",
-                        "required" : [ "gelistirici", "takim", "takimDirektoru" , "teknoloji", "repository"],
+                        "required" : [ "gelistirici", "takim", "takim_direktoru" , "teknoloji", "repository"],
                         "properties" : {
                             "gelistirici" : {
                                 "type" : "string"
@@ -58,7 +58,7 @@ dataSchema = {
                             "takim" : {
                                 "type" : "string"
                             },
-                            "takimDirektoru" : {
+                            "takim_direktoru" : {
                                 "type" : "string"
                             },
                             "teknoloji" : {
@@ -81,7 +81,8 @@ dataSchema = {
 
 }
 
-def validateJson(jsonData):
+#kontrol genişletilecek, türkçe karakter kontrolü eklenecek
+def validateJson(jsonData): 
     try :
         validate(instance=jsonData, schema=dataSchema)
     except jsonschema.exceptions.ValidationError as err:
