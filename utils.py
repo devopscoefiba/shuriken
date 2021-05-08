@@ -11,8 +11,7 @@ import settings
 
 # connect("mongodb+srv://defaultUser:1234@cluster0.7z1zi.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
 
-cluster = MongoClient(
-    "mongodb+srv://basar:Bb123@cluster0.tvsfk.mongodb.net/shuriken")
+cluster = MongoClient("mongodb+srv://basar:Bb123@cluster0.tvsfk.mongodb.net/shuriken")
 
 #   Database configurations are made here. These are the test DB values
 #   Change values in need of use but dont change collection variable name
