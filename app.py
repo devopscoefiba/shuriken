@@ -5,8 +5,6 @@ from utils import *
 import templates, settings
 
 # define flask as app
-
-
 app = Flask(__name__)
 
 
