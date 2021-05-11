@@ -6,6 +6,7 @@ dataSchema = {
     #gerekirse her value icin description yazılabilinir
     "description": "DevOps yatayına girecek uygulamaların metadata bilgi seması",    
     "type" : ["object", "string", "integer"], 
+    "required" : ["application"],
     "properties" : {        
         "application" : {
             "type" : "object",
