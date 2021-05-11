@@ -72,14 +72,11 @@ dataSchema = {
                     }
                 }
             }
-        }
-        
-
-        }
-
+        }     
     }
-
 }
+
+
 
 #kontrol genişletilecek, türkçe karakter kontrolü eklenecek
 def validateJson(jsonData): 
