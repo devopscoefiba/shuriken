@@ -1,6 +1,6 @@
 import json
 import jsonschema
-from jsonschema import validate
+from jsonschema import *
 
 dataSchema = {
     #gerekirse her value icin description yazılabilinir
