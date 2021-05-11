@@ -3,6 +3,7 @@ from flask_mongoengine import MongoEngine
 from models.post import Post
 from utils import *
 import templates, settings
+from schema import * 
 
 # define flask as app
 
@@ -49,6 +50,19 @@ def update_post_page(_id):
     # update_post(_id, json_value)
 
     return "updated"
+
+@app.route('/test')
+def test():
+    with open('json_template.txt', 'r') as j:
+        jsonData = json.dumps(j.read())
+        isValid = validateJson(jsonData)
+        if isValid:
+            print(jsonData)
+            response = "verilen json geçerli"
+        else:
+            print(jsonData)
+            response = "verilen json geçersiz"    
+    return response      
 
 
 # running on debug mode while development
