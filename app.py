@@ -60,9 +60,15 @@ def test():
             print(jsonData)
             response = "verilen json geçerli"
         else:
-            print(jsonData)
-            response = "verilen json geçersiz"    
-    return response      
+            v = Draft7Validator(dataSchema)  
+            errors = sorted(v.iter_errors(jsonData), key=lambda e:e.path)  
+            response = []
+            response.append("geçersiz try again :(") 
+            for error in errors:
+                response.append(error.message)
+            listToM = ' & '.join([str(elt) for elt in response])    
+            return listToM                
+    return response       
 
 
 # running on debug mode while development
