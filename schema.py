@@ -14,13 +14,13 @@ dataSchema = {
             "properties" : {
                 "id" : {
                     "type" : "integer"
-                 },
+                },
                 "business" : {
                     "type" : "object",
                     "required" : [ "kurulum_saati", "is_birimi"],
                     "properties" : {
                         "kurulum_saati" : {
-                            "type" : "integer"  
+                            "type" : "number"  
                         },
                         "is_birimi" : {
                             "type" : "string"
