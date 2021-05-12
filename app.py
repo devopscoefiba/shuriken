@@ -4,6 +4,8 @@ from models.post import Post
 from utils import *
 import templates, settings
 from schema import * 
+from logging import raiseExceptions
+from os import error
 
 # define flask as app
 
@@ -51,10 +53,17 @@ def update_post_page(_id):
 
     return "updated"
 
+#to check whether given json schema is valid and print error messages if any
 @app.route('/test')
 def test():
     with open('json_template.txt', 'r') as j:
-        jsonData = json.dumps(j.read())
+        t = []
+        for lines in j:
+            t.append(lines)
+        
+        #jsonData = json.loads(' '.join([str(elt) for elt in t]))
+        jsonData = json.loads(''.join([str(elt) for elt in t ]))    
+
         isValid = validateJson(jsonData)
         if isValid:
             print(jsonData)
@@ -63,7 +72,7 @@ def test():
             v = Draft7Validator(dataSchema)  
             errors = sorted(v.iter_errors(jsonData), key=lambda e:e.path)  
             response = []
-            response.append("geçersiz try again :(") 
+            response.append("verilen json geçersiz") 
             for error in errors:
                 response.append(error.message)
             listToM = ' & '.join([str(elt) for elt in response])    
