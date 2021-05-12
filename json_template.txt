@@ -1,10 +1,10 @@
 {
     "application":
     {
-        "id" : 00000,
+        "id" : 0,
         "business":
         {
-            "kurulum_saati":"11.45",
+            "kurulum_saati": 11.45,
             "is_birimi" : "Cevik Gelistirme"
         },
         "infrastructure" :
