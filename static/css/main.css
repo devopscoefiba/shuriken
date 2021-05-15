@@ -1,0 +1,16 @@
+/* JUMBOTRON */
+.jumbotron {
+    background: linear-gradient(360deg, #1759bd80 30%, #3b95fd 100%);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+}
+
+.text-center {
+    color: white;
+    font-weight: bold;
+}
+
+
