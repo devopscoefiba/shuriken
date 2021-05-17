@@ -7,37 +7,34 @@
 <!-- <BODY> -->
 {% block body %}
 
-<div class="jumbotron rounded-0 jumbotron-fluid">
+<div class="jumbotron rounded-0 jumbotron-fluid mb-0">
     <div class="container text-center jumboAddPost">
-        <h1>Add Post Page</h1>
-        <p>RealTime Currency Converter API</p>
+        <h1>Yeni Veri Ekle</h1>
+        <p>Bu sayfadan yeni veri ekleyebilirsiniz</p>
     </div>
 </div>
 
-<div class="container">
-    
-    <form action="/home" method="POST">
-        <input type="text" name="name">
-        <input type="submit" value="Add Post">
-    </form>
+<div class="container-fluid table-responsive px-0">
+
+    <table class="table table-dark table-hover table-striped">
+        <thead>
+            <tr>
+                <th>ID </th>
+                <th>Key1</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for post in posts %}
+            <tr>
+                <th scope="row">{{ post._id }}</th>
+                <td>{{ post.json_body }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 
 
-    <h1>Posts in database</h1>
-
-    {% for post in posts %}
-    <h3> Post ID </h3>
-    <td>{{ post._id }}</td>
-    <h3> Post Value </h3>
-    <td>{{ post.json_body }}</td>
-    {% endfor %}
-    <td>
-        <a href="">Delete</a>
-        <br>
-        <a href="">Update</a>
-        <br>
-        <br>
-    </td>
 </div>
-
-{% endblock %}
 <!-- </BODY> -->
+{% endblock %}
