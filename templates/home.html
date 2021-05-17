@@ -65,12 +65,22 @@
              <td>Repository: </td>
             </tr>
             
+            <form method="POST" action="/delete/{{ post._id }}">
+                <input class="btn" type="submit" name="delete" value="Delete">
+            </form>
+            <br>
+            <form action="/update/{{ post._id }}" method="POST">
+                <input type="text" name="name">
+                <input type="submit" value="Update">
+            </form>
+        
             {% endfor %}
         </tbody>
+        
     </table>
 
     
-
+    
 
 </div>
 <!-- </BODY> -->

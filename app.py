@@ -31,8 +31,7 @@ def home_page():
         temp_json = {
             "value": post_value
         }
-        new_post = Post(json_value=temp_json)
-        insert_post(new_post)
+        insert_post(temp_json)
         return redirect('/home')
     else:
         return render_template('home.html', posts=db.posts.find())
@@ -40,22 +39,30 @@ def home_page():
 
 @app.route('/insert/', methods=['POST'])
 def insert_post_page():
+    _json = request.json
+    temp_json = {
+        "value": _json
+    }
+    insert_post(temp_json)
     return 'inserted'
 
 
-@app.route('/delete/<_id>', methods=['DELETE'])
+@app.route('/delete/<_id>', methods=['POST'])
 def delete_post_page(_id):
     delete_post(int(_id))
 
-    return 'deleted'
+    return redirect('/home')
 
 
-@app.route('/update/<_id>', methods=['PUT'])
+@app.route('/update/<_id>', methods=['POST', 'PUT'])
 def update_post_page(_id):
-    json_value = request.get_json()
-    # update_post(_id, json_value)
-
-    return "updated"
+    _json = request.form['name']
+    temp_json = {
+        "value": _json
+    }
+    print(temp_json)
+    update_post(int(_id), temp_json)
+    return redirect('/home')
 
 
 # running on debug mode while development

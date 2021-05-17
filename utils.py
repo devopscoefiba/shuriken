@@ -21,7 +21,8 @@ collection = db["posts"]
 
 # inserting post to database in this method
 # id automatically increments 1by1 and deleted id cannot be used again later
-def insert_post(post):
+def insert_post(json_value):
+    post = Post(json_value=json_value)
     collection.insert_one({"_id": post.post_id, "json_body": json.dumps(post.json_value)})
     print(post)
 
@@ -36,15 +37,17 @@ def get_by_id(item_id):
 # delete method for DB
 # finds the object by given id and deletes it from database
 # print statements are there for debugging. Delete before going live
-def delete_post(object_id):
+def delete_post(object_id: int):
     delete_query = {'_id': object_id}
-    print("Deleting object number: ", object_id)
-    db.delete_one(delete_query)
-    print("Deleted object number: ", object_id)
+    collection.delete_one(delete_query)
+
 
 # Updates post by given id and json_value
-# not working yet
-# def update_post(object_id, json_value):
-#     print(db.find_one_and_update({"_id": object_id},
-#                                          {"$set": {"json_value": json_value}},
-#                                          return_document=ReturnDocument.AFTER))
+
+def update_post(object_id: int, json_value):
+    collection.replace_one(
+        {"_id": object_id},
+        {
+            "json_body": json_value
+        }
+    )
