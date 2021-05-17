@@ -9,30 +9,67 @@
 
 <div class="jumbotron rounded-0 jumbotron-fluid mb-0">
     <div class="container text-center jumboAddPost">
-        <h1>Yeni Veri Ekle</h1>
-        <p>Bu sayfadan yeni veri ekleyebilirsiniz</p>
+        <h1>Verileri Görüntüle</h1>
+        <p>Bu sayfadan verileri görüntüleyebilirsiniz</p>
     </div>
 </div>
 
 <div class="container-fluid table-responsive px-0">
 
-    <table class="table table-dark table-hover table-striped">
+    <table class="table table-light table-hover table-striped">
         <thead>
             <tr>
+                <!-- HEADER SATIR -->
                 <th>ID </th>
-                <th>Key1</th>
+                <th>Business</th>
+                <th>Infrastructure</th>
+                <th>Software</th>
             </tr>
         </thead>
 
         <tbody>
             {% for post in posts %}
+            <!-- 1. SATIR -->
             <tr>
                 <th scope="row">{{ post._id }}</th>
-                <td>{{ post.json_body }}</td>
+                <td>Kurulum Saati: {{ post.json_body }}</td>
+                <td>Sunucu İsmi: </td>
+                <td>Geliştirici: </td>
             </tr>
+            <!-- 2. SATIR -->
+            <tr>
+                <td>&nbsp;</td>
+                <td>Is Birimi</td>
+                <td>Sunucu Teknoloji: </td>
+                <td>Bağlı Olduğu Takım: </td>
+            </tr>
+            <!-- 3. SATIR -->
+            <tr>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>Middleware: </td>
+                <td>Takım Direktörü: </td>
+            </tr>
+            <!-- 4. SATIR -->
+            <tr>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>Direct DBS: </td>
+                <td>Teknoloji: </td>
+            </tr>
+            <!-- 5. SATIR -->
+            <tr class="border_bottom">
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>DB Tech Client: </td>
+             <td>Repository: </td>
+            </tr>
+            
             {% endfor %}
         </tbody>
     </table>
+
+    
 
 
 </div>
