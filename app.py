@@ -8,11 +8,20 @@ import templates, settings
 app = Flask(__name__)
 
 
-#   redirect lost people to home :)
+# Redirect lost people to home :)
 @app.route('/')
 def go_home():
     return redirect('/home')
 
+# Search Data Page
+@app.route('/search')
+def searchData():
+    return render_template('search.html')
+
+# Add Data Page
+@app.route('/add')
+def addData():
+    return render_template('add.html')
 
 #   home route where the magic happens
 @app.route('/home', methods=['GET', 'POST'])

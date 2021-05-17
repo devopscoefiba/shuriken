@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+{% endblock %}
+
+<!-- <BODY> -->
+{% block body %}
+
+<div class="jumbotron rounded-0 jumbotron-fluid mb-0">
+    <div class="container text-center jumboAddPost">
+        <h1>Veri ekle</h1>
+        <p>Bu sayfadan veri ekleme işlemlerinizi yapabilirsiniz</p>
+    </div>
+</div>
+
+<form action="/home" method="POST">
+    <input type="text" name="name">
+    <input type="submit" value="Add Post">
+</form>
+
+
+
+<!-- </BODY> -->
+{% endblock %}
