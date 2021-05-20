@@ -32,7 +32,11 @@
             <!-- 1. SATIR -->
             <tr>
                 <th scope="row">{{ post._id }}</th>
-                <td>Kurulum Saati: {{ post.json_body }}</td>
+                <td>Kurulum Saati: {{ post.json_body }} <form action="/update/{{ post._id }}" method="POST">
+                        <input type="text" name="name">
+                        <input type="submit" value="Update">
+                    </form>
+                </td>
                 <td>Sunucu İsmi: </td>
                 <td>Geliştirici: </td>
             </tr>
@@ -62,25 +66,29 @@
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
                 <td>DB Tech Client: </td>
-             <td>Repository: </td>
+                <td>Repository: </td>
             </tr>
-            
-            <form method="POST" action="/delete/{{ post._id }}">
-                <input class="btn" type="submit" name="delete" value="Delete">
-            </form>
+
+
+
+
             <br>
             <form action="/update/{{ post._id }}" method="POST">
                 <input type="text" name="name">
                 <input type="submit" value="Update">
             </form>
-        
+
+            <form method="POST" action="/delete/{{ post._id }}">
+                <input class="btn" type="submit" name="delete" value="Delete">
+            </form>
+
             {% endfor %}
         </tbody>
-        
+
     </table>
 
-    
-    
+
+
 
 </div>
 <!-- </BODY> -->
