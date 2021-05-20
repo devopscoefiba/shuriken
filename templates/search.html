@@ -1,0 +1,19 @@
+{ % extends 'base.html' %} 
+
+{% block head %}
+<title>Search</title>
+{% endblock %}
+
+{% block body %}
+<h1>Searching</h1>
+<p>Arama yaparken collection.mapping yapmak gerekiyor.
+    Örneğin kurulum saati 13.42 olan uygulamaları aratmak için:
+    </p>
+<p>key : application.business.kurulum_saati    
+    value : 13.42 </p>
+<form action='/search' method='POST' >
+    <td><input type='text' name=key placeholder=key ></td>
+    <td><input type='text' name=value placeholder=value></td>
+    
+    <td><button type="submit">Search</button></td>
+{% endblock %}

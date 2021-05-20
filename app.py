@@ -6,6 +6,7 @@ import templates, settings
 from schema import * 
 from logging import raiseExceptions
 from os import error
+from bson import json_util
 
 # define flask as app
 
@@ -61,7 +62,6 @@ def test():
         for lines in j:
             t.append(lines)
         
-        #jsonData = json.loads(' '.join([str(elt) for elt in t]))
         jsonData = json.loads(''.join([str(elt) for elt in t ]))    
 
         isValid = validateJson(jsonData)
@@ -79,6 +79,18 @@ def test():
             return listToM                
     return response       
 
+@app.route('/search', methods=['POST', 'GET'])
+def search():
+    if request.method == 'POST':
+        key_input = request.form['key']
+        value_input = request.form['value']
+        #id için search u buraya eklemedim
+        cursor = collection.find({ key_input : value_input})                 
+        cursor_dict = [ x for x in cursor]
+        cursor_json = json.dumps(cursor_dict, default=json_util.default)
+        return cursor_json
+    else:
+        return render_template('search.html') 
 
 # running on debug mode while development
 if __name__ == '__main__':
