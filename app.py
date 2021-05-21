@@ -92,6 +92,52 @@ def search():
     else:
         return render_template('search.html') 
 
+@app.route('/admin', methods=['POST', 'GET'])
+def admin():
+    if request.method == 'POST':
+        id_input = request.form['id']
+        kurulum_saati = request.form['k_saati']
+        is_birimi = request.form['i_birimi']
+        sunucu_ismi = request.form['s_ismi']
+        sunucu_tech = request.form['s_tech']
+        middleware = request.form['mid']
+        direct_dbs = request.form['d_dbs']
+        db_tech_client = request.form['db_tech']
+        gelistirici = request.form['gelistirici']
+        takim = request.form['takim']
+        takim_direktor = request.form['t_direktor']
+        tech = request.form['tech']
+        repo = request.form['repo']
+        jsonData = {
+        "application": {
+            "id" : id_input,
+            "business":  {
+                "kurulum_saati": kurulum_saati,
+                "is_birimi" : is_birimi
+            },
+            "infrastructure" : {
+                "sunucu_ismi" : sunucu_ismi,
+                "sunucu_teknoloji": sunucu_tech,
+                "middleware": middleware,
+                "direct_DBS": direct_dbs, 
+                "db_Tech_Client": db_tech_client
+            },
+            "software":{
+                "gelistirici": gelistirici,
+                "takim" : takim,
+                "takim_direktoru" : takim_direktor,
+                "teknoloji" : tech,
+                "repository" : repo
+            }
+        }
+    }  
+        collection.insert(jsonData)
+        return "done"
+
+  
+    else:          
+        return render_template('admin.html')        
+
 # running on debug mode while development
 if __name__ == '__main__':
     app.run(debug=True)

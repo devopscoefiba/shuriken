@@ -1,0 +1,35 @@
+{% extends 'base.html' %}  
+
+{% block head %}
+<title>1.ekran</title>
+{% endblock %}
+
+
+{% block body %}
+<h1>Veri Ekleme</h1>
+<form action='/admin' method='POST' >
+    <h2>application</h2>
+    <td><input type='number' name=id placeholder= id></td>
+    <h2>business</h2>
+    <td><input type='text' name=k_saati  placeholder=kurulum_saati></td>
+    <td><input type='text' name=i_birimi placeholder=is_birimi></td>
+    <h2>infrastructure</h2>
+    <td><input type='text' name=s_ismi placeholder=sunucu_ismi></td>
+    <td><input type='text' name=s_tech placeholder=sunucu_teknoloji></td>
+    <td><input type='text' name=mid placeholder=middleware></td>
+    <td><input type='text' name=d_dbs placeholder=direct_DBS></td>
+    <td><input type='text' name=db_tech placeholder=db_tech_client></td>
+    <h2>software</h2>
+    <td><input type='text' name=gelistirici placeholder=gelistirici></td>
+    <td><input type='text' name=takim placeholder=takim></td>
+    <td><input type='text' name=t_direktor placeholder=takim_direktoru></td>
+    <td><input type='text' name=tech placeholder=teknoloji></td>
+    <td><input type='text' name=repo placeholder=repository></td>          
+    <td><button type="submit">Ekle</button></td>
+    <br> <br>
+    <form action='/new' method='POST' >
+             
+    <a href="{{url_for('new')}}">
+        Öge Ekle
+    </a>
+{% endblock %}
