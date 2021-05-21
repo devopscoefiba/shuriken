@@ -132,7 +132,7 @@ def admin():
         }
     }  
         collection.insert(jsonData)
-        return "done"
+        return redirect('/home')
 
   
     else:          
