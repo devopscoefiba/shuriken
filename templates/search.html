@@ -1,4 +1,4 @@
-{ % extends 'base.html' %} 
+{% extends 'base.html' %} 
 
 {% block head %}
 <title>Search</title>
@@ -9,7 +9,7 @@
 <p>Arama yaparken collection.mapping yapmak gerekiyor.
     Örneğin kurulum saati 13.42 olan uygulamaları aratmak için:
     </p>
-<p>key : application.business.kurulum_saati    
+<p>key : json_body.application.business.kurulum_saati    
     value : 13.42 </p>
 <form action='/search' method='POST' >
     <td><input type='text' name=key placeholder=key ></td>

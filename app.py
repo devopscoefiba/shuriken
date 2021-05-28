@@ -84,7 +84,7 @@ def search():
     if request.method == 'POST':
         key_input = request.form['key']
         value_input = request.form['value']
-        #id için search u buraya eklemedim
+        
         cursor = collection.find({ key_input : value_input})                 
         cursor_dict = [ x for x in cursor]
         cursor_json = json.dumps(cursor_dict, default=json_util.default)
@@ -92,10 +92,24 @@ def search():
     else:
         return render_template('search.html') 
 
+@app.route('/find', methods=['POST', 'GET'])  
+def find():
+    if request.method == 'POST':
+        id = request.form['id']
+        id_int = int(id)
+        cursor = collection.find({"json_body.application.id": id_int }) 
+    
+        cursor_dict = [ x for x in cursor]
+        cursor_json = json.dumps(cursor_dict, default=json_util.default)
+        return cursor_json
+    else:
+        return render_template('find.html')        
+
 @app.route('/admin', methods=['POST', 'GET'])
 def admin():
     if request.method == 'POST':
-        id_input = request.form['id']
+        id_db = int(request.form['id_db'])
+        id_app = int(request.form['id_app'])
         kurulum_saati = request.form['k_saati']
         is_birimi = request.form['i_birimi']
         sunucu_ismi = request.form['s_ismi']
@@ -109,28 +123,31 @@ def admin():
         tech = request.form['tech']
         repo = request.form['repo']
         jsonData = {
-        "application": {
-            "id" : id_input,
-            "business":  {
-                "kurulum_saati": kurulum_saati,
-                "is_birimi" : is_birimi
-            },
-            "infrastructure" : {
-                "sunucu_ismi" : sunucu_ismi,
-                "sunucu_teknoloji": sunucu_tech,
-                "middleware": middleware,
-                "direct_DBS": direct_dbs, 
-                "db_Tech_Client": db_tech_client
-            },
-            "software":{
-                "gelistirici": gelistirici,
-                "takim" : takim,
-                "takim_direktoru" : takim_direktor,
-                "teknoloji" : tech,
-                "repository" : repo
+	        "_id" : id_db,
+	        "json_body":{
+                "application": {
+                    "id" : id_app,
+                    "business":  {
+                        "kurulum_saati": kurulum_saati,
+                        "is_birimi" : is_birimi
+                    },
+                    "infrastructure" : {
+                        "sunucu_ismi" : sunucu_ismi,
+                        "sunucu_teknoloji": sunucu_tech,
+                        "middleware": middleware,
+                        "direct_DBS": direct_dbs,
+                        "db_Tech_Client": db_tech_client
+                    },
+                    "software":{
+                        "gelistirici": gelistirici,
+                        "takim" : takim,
+                        "takim_direktoru" : takim_direktor,
+                        "teknoloji" : tech,
+                        "repository" : repo
+                    }
+                }
             }
         }
-    }  
         collection.insert(jsonData)
         return redirect('/home')
 

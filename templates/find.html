@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Arama</title>
+{% endblock %}
+
+
+{% block body %} 
+<p>Application ID ile Arama</p>
+<h1>search</h1>
+<form action='/find' method='POST' >
+    <td><input type='text' name=id ></td>
+    <td><button type="submit">Search</button></td>
+
+{% endblock %}
